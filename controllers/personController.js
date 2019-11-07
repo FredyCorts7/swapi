@@ -3,7 +3,7 @@ const Person = require('../models/Person');
 async function login (req, res) {
     try {
         const { pers_document, pers_password } = req.body;
-        const person = Person.findOne({
+        const person = await Person.findOne({
             where: {
                 pers_document,
                 pers_password
