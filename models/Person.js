@@ -28,6 +28,10 @@ const Person = sequelize.define('person', {
         type: Sequelize.STRING,
         allowNull: false
     },
+    pers_password: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
     pers_birthday: {
         type: Sequelize.DATE,
         allowNull: false
