@@ -2,7 +2,7 @@ const { Router } = require('express');
 
 const {
     login
-} = require('../controllers/personController');
+} = require('../controllers/loginController');
 
 function loginAPI(server) {
     const router = Router();

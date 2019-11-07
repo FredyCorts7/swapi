@@ -11,8 +11,6 @@ function personAPI(server) {
 
     router.get('/', getPersons);
     router.post('/', addPerson);
-
-    router.get('/:pers_id', getPersons);
 }
 
 module.exports = personAPI;
