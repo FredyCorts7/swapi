@@ -8,7 +8,7 @@ function loginAPI(server) {
     const router = Router();
     server.use('/login', router);
 
-    router.get('/', login);
+    router.post('/', login);
 }
 
 module.exports = loginAPI;
