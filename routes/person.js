@@ -10,7 +10,7 @@ function personAPI(server) {
     server.use('/person', router);
 
     router.get('/', getPersons);
-    router.post('/', addPerson);
+    router.post('/', addPerson);    
 }
 
 module.exports = personAPI;
