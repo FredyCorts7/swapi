@@ -1,3 +1,4 @@
+const Sequelize = require('sequelize');
 const Question = require('../models/Question');
 const Answer = require('../models/Answer');
 
@@ -10,7 +11,9 @@ async function getQuestions(req, res) {
                     model: Answer,
                     required: true
                 }],
-                where: { area_area_id: area }
+                where: { area_area_id: area },
+                order: Sequelize.literal('rand()'),
+                limit: 30
             });
             return res.json({message: 'returned questions', data: questions || [] });
         }
