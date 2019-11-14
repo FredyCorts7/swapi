@@ -1,12 +1,19 @@
 const Test = require('../models/Test');
+const Area = require('../models/Area');
 
 async function getTests (req, res) {
     try {
         const { pers_id } = req.params;
         if (pers_id) {
-            const tests = await Test.findAll({ where: {
-                person_pers_id: pers_id
-            }});
+            const tests = await Test.findAll({
+                include: [{
+                    model: Area,
+                    required: true,
+                    attributes: ['area_name', 'area_description'],
+                }],
+                attributes: ['test_calification', 'test_date', 'area_area_id'],
+                where: { person_pers_id: pers_id }
+            });
             return res.json({message: 'returned tests', data: tests || [] });
         }
     } catch (error) {
