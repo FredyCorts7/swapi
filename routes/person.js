@@ -5,12 +5,16 @@ const {
     addPerson
 } = require('../controllers/personController');
 
+const {
+    verifyToken
+} = require('../controllers/loginController');
+
 function personAPI(server) {
     const router = Router();
     server.use('/person', router);
 
-    router.get('/', getPersons);
-    router.post('/', addPerson);    
+    router.get('/', verifyToken, getPersons);
+    router.post('/', addPerson);
 }
 
 module.exports = personAPI;
