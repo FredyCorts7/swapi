@@ -18,7 +18,7 @@ async function getAreas (req, res) {
 
 async function uploadArea (req, res) {
     try {
-        res.status(500).json({ message: 'Algo ha salido mal', data: req.files[0] })
+        res.status(200).json({ message: 'Imagenes subidas', data: req.files[0] })
     } catch (error) {
         console.log(error);
         res.status(500).json({ message: 'Algo ha salido mal', data: [] })
