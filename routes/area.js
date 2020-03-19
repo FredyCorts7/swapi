@@ -1,7 +1,9 @@
 const { Router } = require('express');
+const upload = require('../services/multer');
 
 const {
-    getAreas
+    getAreas,
+    uploadArea
 } = require('../controllers/areaController');
 
 function areaAPI(server) {
@@ -10,6 +12,8 @@ function areaAPI(server) {
 
     router.get('/', getAreas);
     router.get('/:area_id', getAreas);
+
+    router.post('/', upload.array('images', 3), uploadArea);
 }
 
 module.exports = areaAPI;

@@ -12,6 +12,8 @@ const answerAPI = require('./routes/answer');
 const loginAPI = require('./routes/login');
 const testAPI = require('./routes/test');
 
+server.use(express.static("./public/images"))
+
 personAPI(server);
 areaAPI(server);
 questionAPI(server);
