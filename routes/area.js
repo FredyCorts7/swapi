@@ -13,7 +13,7 @@ function areaAPI(server) {
     router.get('/', getAreas);
     router.get('/:area_id', getAreas);
 
-    router.post('/', upload.array('images', 3), uploadArea);
+    router.post('/', upload.single('images'), uploadArea);
 }
 
 module.exports = areaAPI;
